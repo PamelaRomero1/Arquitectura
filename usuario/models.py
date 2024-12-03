@@ -11,7 +11,7 @@ class Taller(models.Model):
     horario1 = models.CharField(max_length=20)
     profesor = models.CharField(max_length=100)
 
-    def __str__(self):
+    def _str_(self):
         return self.nombreTaller
 
 class Perfil(models.Model):

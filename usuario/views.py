@@ -3,15 +3,17 @@ from .models import Taller, Perfil
 from django.contrib.auth.decorators import login_required
 
 
+
 def index(request):
     context = {}
     return render(request, 'index.html', context)
 
-def taller(request):
+def taller(request): 
     return render(request, 'taller.html')
 
 def Taller_view(request):
-    talleres = Taller.objects.all()  # Recupera todos los talleres
+    talleres = Taller.objects.all()  # Recupera todos los registros
+    raise Exception(f"Talleres recuperados: {talleres}")
     return render(request, 'taller.html', {'talleres': talleres})
 
 def perfil(request):
