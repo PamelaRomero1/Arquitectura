@@ -12,8 +12,8 @@ def taller(request):
     return render(request, 'taller.html')
 
 def Taller_view(request):
-    talleres = Taller.objects.all()  # Recupera todos los registros
-    raise Exception(f"Talleres recuperados: {talleres}")
+    talleres = Taller.objects.all()
+    #import pdb; pdb.set_trace()  # Pausa aquí para inspeccionar 'talleres'
     return render(request, 'taller.html', {'talleres': talleres})
 
 def perfil(request):

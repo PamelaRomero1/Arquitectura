@@ -7,15 +7,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     {% load static %}
 </head>
-<body>
+<body style="background-color: rgb(104, 212, 212);">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <img src="{% static 'image/logo_puente.png' %}" alt="logo_puente" style="margin-right: 10px;"><a class="navbar-brand" href="{% url 'index' %}">Inicio</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
        
-        
-        
         
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
@@ -97,13 +95,13 @@
           </form>
         </div>
       </nav>
-      <h2 class="text-center">Listado de talleres</h2>
+      <h2 class="text-center" >Listado de talleres</h2>
       <br>
       
       <div class="container">
         
-      <div class="alert alert-info" role="alert">
-        <h3>A partir del 1 de Diciembre se cerrarán las inscripciones de alumnos para los talleres 2024, en sus modalidades presenciales y online.</h3>
+      <div class="alert alert-info" role="alert" style="background-color: none;" >
+        <h3 style="text-align: center;">A partir del 1 de Diciembre se cerrarán las inscripciones de alumnos para los talleres 2024, en sus modalidades presenciales y online.</h3>
       </div>
     <table class="table">
         <thead class="thead-light">

@@ -1,0 +1,14 @@
+.linea-decorativa {
+    width: 150px;        /* Ajusta el ancho de la línea */
+    height: 4px;         /* Grosor de la línea */
+    background-color: #bb8353; /* Color de la línea */
+    color:#bb8353;
+    margin: 10px auto;      /* Centra la línea */
+    border-radius: 2px;  /* Redondea los bordes */
+  }
+  .fondotaller {
+    background-image: url('images/fondotaller.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
