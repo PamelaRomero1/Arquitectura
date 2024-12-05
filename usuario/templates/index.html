@@ -88,10 +88,10 @@
         </li>
       </ul>
 
-
             <!-- Verifica si el usuario está autenticado -->
             {% if user.is_authenticated %}
                 <!-- Si el usuario está autenticado, muestra el botón de perfil -->
+              <ul>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                         Bienvenido, {{ user.username }}
@@ -112,6 +112,7 @@
         {% endif %}
                     </div>
                 </li>
+              </ul>
             {% else %}
                 <!-- Si el usuario no está autenticado, muestra el botón de iniciar sesión -->
                 <form method="post" action="{% url 'login' %}">
@@ -162,7 +163,7 @@
 
     <div style="height: 60vh; display: flex; justify-content: center; align-items: center;">
       <div style="display: flex; gap: 20px;">
-        <!-- Tarjeta 1 -->
+       
         <div class="card" style="width: 18rem; margin: 10px; text-align: center;">
           <img src="{% static 'image/galletas.webp' %}" class="card-img-top" alt="galletas">
           <div class="card-body">
@@ -170,7 +171,7 @@
           </div>
         </div>
 
-        <!-- Tarjeta 2 -->
+        
         <div class="card" style="width: 18rem; margin: 10px; text-align: center;">
           <img src="{% static 'image/tejido.jpg' %}" class="card-img-top" alt="tejido">
           <div class="card-body">
@@ -178,7 +179,7 @@
           </div>
         </div>
 
-        <!-- Tarjeta 3 -->
+   
         <div class="card" style="width: 18rem; margin: 10px;text-align: center;">
           <img src="{% static 'image/zumba.png' %}" class="card-img-top" alt="zumba">
           <div class="card-body">
@@ -189,48 +190,48 @@
     </div>
 
     <div style="background-color: #f77d17; padding: 40px; text-align: center; color: white; margin-top: 50px;">
-      <!-- Título -->
+      
       <h1 style="margin-bottom: 10px;">PROYECTOS DE GESTIÓN MUNICIPAL</h1>
       <p style="margin-bottom: 30px;">Principales obras implementadas durante la actual gestión</p>
     
       <!-- Contenedor de íconos -->
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto;">
-        <!-- Ícono 1 -->
+        
         <div style="text-align: center;">
           <i class="fa-solid fa-recycle" style="font-size: 50px; color: rgb(253, 253, 253); margin-bottom: 10px;"></i>
           <p style="margin: 0; color: rgb(243, 243, 243);font-weight: bold;">CENTROS DE RECICLAJE</p>
         </div>
     
-        <!-- Ícono 2 -->
+        
         <div style="text-align: center;">
           <i class="fa-solid fa-user-shield" style="font-size: 50px; color: rgb(252, 252, 252); margin-bottom: 10px;"></i>
-          <p style="margin: 0;">RUTA SEGURA</p>
+          <p style="margin: 0;font-weight: bold">RUTA SEGURA</p>
         </div>
     
-        <!-- Ícono 3 -->
+       
         <div style="text-align: center;">
           <i class="fa-solid fa-clipboard-list" style="font-size: 50px; color: rgb(245, 248, 244); margin-bottom: 10px;"></i>
-          <p style="margin: 0;">MUNICIPIO EN TU BARRIO</p>
+          <p style="margin: 0;font-weight: bold;">MUNICIPIO EN TU BARRIO</p>
         </div>
       
-        <!-- Ícono 4 -->
+     
         <div style="text-align: center;">
           <i class="fa-regular fa-moon" style="font-size: 50px; color: rgb(245, 248, 244); margin-bottom: 10px;"></i>
-          <p style="margin: 0;">ATENCIÓN NOCTURNA</p>
-        </div>
-        <!-- Ícono 5 -->
-        <div style="text-align: center;">
-          <i class="fa-brands fa-accessible-icon" style="font-size: 50px; color: rgb(245, 248, 244); margin-bottom: 10px;"></i>
-          <p style="margin: 0;">VENTANAS ABIERTAS</p>
-        </div>
-       
-        <!-- Ícono 6 -->
-        <div style="text-align: center;">
-          <i class="fa-solid fa-tree" style="font-size: 50px; color: rgb(245, 248, 244); margin-bottom: 10px;"></i>
-          <p style="margin: 0;">PLAZAS FAMILIARES</p>
+          <p style="margin: 0;font-weight: bold">ATENCIÓN NOCTURNA</p>
         </div>
         
-        <!-- Agrega más íconos según lo necesites -->
+        <div style="text-align: center;">
+          <i class="fa-brands fa-accessible-icon" style="font-size: 50px; color: rgb(245, 248, 244); margin-bottom: 10px;"></i>
+          <p style="margin: 0;font-weight: bold">VENTANAS ABIERTAS</p>
+        </div>
+       
+        
+        <div style="text-align: center;">
+          <i class="fa-solid fa-tree" style="font-size: 50px; color: rgb(245, 248, 244); margin-bottom: 10px;"></i>
+          <p style="margin: 0;font-weight: bold">PLAZAS FAMILIARES</p>
+        </div>
+        
+        
       </div>
     </div>
 
