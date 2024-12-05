@@ -12,3 +12,7 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
+  .table-custom-bg {
+    background-color: white;
+  }

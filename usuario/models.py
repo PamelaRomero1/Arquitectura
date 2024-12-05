@@ -8,7 +8,7 @@ class Taller(models.Model):
     tipo = models.CharField(max_length=100)
     nombreTaller = models.CharField(max_length=100)
     direccion = models.CharField(max_length=100)
-    horario1 = models.CharField(max_length=20)
+    horario1 = models.CharField(max_length=50)
     profesor = models.CharField(max_length=100)
 
     def _str_(self):

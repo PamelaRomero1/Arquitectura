@@ -108,15 +108,11 @@
                     <label for="password">Contraseña</label>
                     <input type="password" class="form-control" id="password" name="password" required>
                 </div>
-                {% if form.errors %}
-                    <div class="alert alert-danger">
-                        <strong>Error:</strong> Nombre de usuario o contraseña incorrectos.
-                    </div>
-                {% endif %}
+                
                 <button type="submit" class="btn btn-primary">Iniciar sesión</button>
             </form>
           <br>
-          <a href="" style="margin-left: 450px;">Registrarse</a> / <a href="">Recuperar contraseña</a>
+          <a href="{% url 'registro' %}" style="margin-left: 450px;">Registrarse</a> / <a href="">Recuperar contraseña</a>
     </div>
 
     
