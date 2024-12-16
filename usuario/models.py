@@ -21,7 +21,7 @@ class Perfil(models.Model):
     fecha_nacimiento = models.DateField(null=True, blank=True)  # Ejemplo de campo adicional
     direccion = models.CharField(max_length=255, null=True, blank=True)
     telefono = models.CharField(max_length=20, null=True, blank=True)
-    email = models.CharField(max_length=255, null=True, blank=True)
+    email = models.EmailField(max_length=255, null=True, blank=True)
 
     def __str__(self):
         return f"Perfil de {self.usuario.username}"

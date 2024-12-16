@@ -84,7 +84,8 @@
             </div>
           </li>
         <li class="nav-item">
-          <a class="nav-link disabled">VIVE PUENTE ALTO</a>
+          <a class="nav-link disabled"><strong>BIENVENIDO, {{ user.username|upper }}</strong></a>
+                    
         </li>
       </ul>
 
@@ -92,18 +93,22 @@
             {% if user.is_authenticated %}
                 <!-- Si el usuario está autenticado, muestra el botón de perfil -->
               <ul>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                        Bienvenido, {{ user.username }}
+                <div class="dropdown">
+                   <a class="btn btn-secondary dropdown-toggle" id="adminDropdown" type="button" data-toggle="dropdown" aria-expanded="false">
+                       Administrador
                     </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="{% url 'perfil' %}">Mi Perfil</a>
+                    <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+                        <a class="dropdown-item" href="{% url 'perfil' %}">Usuarios</a>
+                        <a class="dropdown-item">Estadísticas</a>
+                        
                         {% if user.is_authenticated %}
+      <li class="d-flex justify-content-center">
     <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}
         
-        <button type="submit" class="btn btn-danger">Cerrar sesión</button>
+        <a type="submit" class="btn btn-danger">Cerrar sesión</a>
     </form>
+  </li>
         {% endif %}      
         {% if messages %}
         {% for message in messages %}
@@ -111,7 +116,7 @@
         {% endfor %}
         {% endif %}
                     </div>
-                </li>
+                </div>
               </ul>
             {% else %}
                 <!-- Si el usuario no está autenticado, muestra el botón de iniciar sesión -->

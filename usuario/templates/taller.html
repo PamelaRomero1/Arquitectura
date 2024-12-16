@@ -213,6 +213,7 @@
             <th scope="col">Dirección</th>
             <th scope="col">Horario</th>
             <th scope="col">Profesor</th>
+            <th></th>
             
           </tr>
         </thead>
@@ -220,11 +221,12 @@
           {% for taller in talleres %}
           <tr>
             <th>{{ taller.categoria }}</th>
-            <td >{{ taller.tipo }}</td>
+            <td>{{ taller.tipo }}</td>
             <td>{{ taller.nombreTaller }}</td>
             <td>{{ taller.direccion }}</td>
             <td>{{ taller.horario1 }}</td>
             <td>{{ taller.profesor }}</td>
+            <td><button type="submit">Inscribir</button></td>
             
           </tr>
           {% empty %}

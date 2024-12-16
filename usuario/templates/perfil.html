@@ -103,11 +103,46 @@
                 </div>
               </li>
             <li class="nav-item">
-              <a class="nav-link disabled">VIVE PUENTE ALTO</a>
+              <a class="nav-link disabled"><strong>BIENVENIDO, {{ user.username|upper }}</strong></a>
             </li>
           </ul>
 
-          
+          {% if user.is_authenticated %}
+          <!-- Si el usuario está autenticado, muestra el botón de perfil -->
+        <ul>
+          <div class="dropdown">
+             <a class="btn btn-secondary dropdown-toggle" id="adminDropdown" type="button" data-toggle="dropdown" aria-expanded="false">
+                 Administrador
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+                  <a class="dropdown-item" href="{% url 'perfil' %}">Usuarios</a>
+                  <a class="dropdown-item">Estadísticas</a>
+                  
+                  {% if user.is_authenticated %}
+<li class="d-flex justify-content-center">
+<form method="post" action="{% url 'logout' %}">
+  {% csrf_token %}
+  
+  <a type="submit" class="btn btn-danger">Cerrar sesión</a>
+</form>
+</li>
+  {% endif %}      
+  {% if messages %}
+  {% for message in messages %}
+      <div class="alert alert-info">{{ message }}</div>
+  {% endfor %}
+  {% endif %}
+              </div>
+          </div>
+        </ul>
+      {% else %}
+          <!-- Si el usuario no está autenticado, muestra el botón de iniciar sesión -->
+          <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+        </form>
+      {% endif %}
+
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
@@ -116,43 +151,42 @@
       </nav>
 
       <div class="container mt-5 d-flex justify-content-center">
-        <div class="card" style="width: 50rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);background-color: rgb(192, 215, 244);">
-            <div class="card-body">
-                <h1 class="card-title text-center mb-4">Perfil de {{ user.username }}</h1>
-                <form method="post">
-                    {% csrf_token %}
-                    <div class="form-group">
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre" class="form-control" value="{{ perfil.nombre }}" readonly>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="apellido">Apellido:</label>
-                        <input type="text" id="apellido" name="apellido" class="form-control" value="{{ perfil.apellido }}" readonly>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="fecha">Fecha de Nacimiento:</label>
-                        <input type="text" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control" value="{{ perfil.fecha_nacimiento }}" readonly>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="direccion">Dirección:</label>
-                        <input type="text" id="direccion" name="direccion" class="form-control" value="{{ perfil.direccion }}" readonly>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="telefono">Teléfono:</label>
-                        <input type="text" id="telefono" name="telefono" class="form-control" value="{{ perfil.telefono }}" readonly>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="text" id="email" name="email" class="form-control" value="{{ perfil.email }}" readonly>
-                    </div>
-                </form>
-            </div>
-        </div>
+        <table class="table" style="background-color: rgb(250, 249, 249);">
+          <thead>
+            <tr>
+              
+              <th scope="col">Usuario</th>   
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Fecha de nacimiento</th>
+              <th scope="col">Dirección</th>
+              <th scope="col">Teléfono</th>
+              <th scope="col">Email</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for perfil in perfiles %}
+            <tr>
+              
+              <td>{{ perfil.usuario.username }}</td>
+              <td>{{ perfil.nombre }}</td>
+              <td>{{ perfil.apellido }}</td> 
+              <td>{{ perfil.fecha_nacimiento }}</td>
+              <td>{{ perfil.direccion }} </td>
+              <td>{{ perfil.telefono }}</td>
+              <td>{{ perfil.email }}</td>
+              <td><button>Editar</button></td>
+              <td><button>Eliminar</button></td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" class="text-center">No hay perfiles disponibles.</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
     </div>
     
 

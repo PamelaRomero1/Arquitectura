@@ -17,6 +17,12 @@ from django.db import IntegrityError
 def index(request):
     return render(request, 'index.html')
 
+
+def lista_perfiles(request):
+    perfiles = Perfil.objects.all()  # Obtener todos los perfiles de la tabla
+    return render(request, 'perfil.html', {'perfiles': perfiles})
+
+
 def taller(request): 
     return render(request, 'taller.html')
 
@@ -36,15 +42,7 @@ class PerfilForm(forms.ModelForm):
         model = Perfil
         fields = ['nombre', 'apellido', 'fecha_nacimiento', 'direccion', 'telefono', 'email']
 
-def perfil_view(request):
-    # Asegúrate de que el usuario esté autenticado
-    if request.user.is_authenticated:
-        # Obtén el perfil asociado al usuario actual
-        perfiles = get_object_or_404(Perfil, usuario=request.user)
-        return render(request, 'perfil.html', {'perfiles': perfiles})
-    else:
-        # Redirigir a la página de login si no está autenticado
-        return redirect('login') 
+
 
 def logout_view(request):
     logout(request)
@@ -94,3 +92,5 @@ def registro(request):
         form = RegistroForm()
 
     return render(request, 'registro.html', {'form': form})
+
+    
