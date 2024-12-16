@@ -7,7 +7,25 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     {% load static %}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
 </head>
+<style>
+   
+    body {
+        background-image: url("{% static 'image/munifondo.jpg' %}");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 80vh;
+        margin: 0;
+    }
+  
+    .card {
+        background-color: rgb(255, 255, 255); 
+        border-radius: 15px;
+    }
+</style>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <img src="{% static 'image/logo_puente.png' %}" alt="logo_puente" style="margin-right: 10px;"><a class="navbar-brand" href="{% url 'index' %}">Inicio</a>
@@ -40,7 +58,7 @@
               <a class="dropdown-item" href="#">Museos</a>
               <a class="dropdown-item" href="#">Ferias</a>
               <a class="dropdown-item" href="#">Turismo</a>
-              <a class="dropdown-item" href="{% url 'instructor' %}">Postular a instructor</a>
+              <a class="dropdown-item" href="#">Postular a instructor</a>
               <div class="dropdown-divider"></div>
               
             </div>
@@ -132,117 +150,101 @@
             </form>
         </div>
     </nav>
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="{% static 'image/navidad.jpg' %}" alt="navidad" style="margin-left: 60px;">
-        </div>
-        <div class="carousel-item">
-          <img src="{% static 'image/expo.jpg' %}" alt="expo" style="margin-left: 60px;">
-        </div>
-        <div class="carousel-item">
-          <img src="{% static 'image/empleo.png' %}" alt="empleo" style="margin-left: 60px;">
-        </div>
-        <div class="carousel-item">
-          <img src="{% static 'image/estudios.jpg' %}" alt="estudios" style="margin-left: 60px;">
-        </div>
-        <div class="carousel-item">
-          <img src="{% static 'image/salacuna.jpg' %}" alt="salacuna" style="margin-left: 60px;">
+
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="card shadow-lg" style="width: 40rem; padding: 2rem;background-color: rgb(177, 206, 245);">
+          <div class="card-body">
+            <h2 class="card-title text-center mb-4">Postular a Instructor</h2>
+            <form id="formulario-registro">
+              <div class="mb-3">
+                <label for="nombres" class="form-label">Nombres</label>
+                <input type="text" class="form-control" id="nombres" placeholder="Ingresa tus nombres" required>
+              </div>
+              <div class="mb-3">
+                <label for="apellidos" class="form-label">Apellidos</label>
+                <input type="text" class="form-control" id="apellidos" placeholder="Ingresa tus apellidos" required>
+              </div>
+              <div class="mb-3">
+                <label for="rut" class="form-label">RUT</label>
+                <input type="text" class="form-control" id="rut" placeholder="Ingresa tu RUT" required>
+              </div>
+              <div class="mb-3">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <input type="text" class="form-control" id="telefono" placeholder="Ingresa tu Teléfono" required>
+              </div>
+            
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Ingresa tu correo electrónico" required>
+              </div>
+              <div class="mb-3">
+                <label for="taller" class="form-label">Taller a Impartir</label>
+                <select class="form-select" id="taller" required>
+                  <option value="" selected disabled>Selecciona un taller</option>
+                  <option value="cocina">Cocina</option>
+                  <option value="tejido">Tejido de cero</option>
+                  <option value="costura">Costura para principiantes</option>
+                  <option value="zumba">Zumba</option>
+                  <option value="tango">Tango básico</option>
+                  <option value="galletas">Galletas Navideñas</option>
+                  <option value="tejido2">Tejido Avanzado</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Enviar</button>
+            </form>
+          </div>
         </div>
       </div>
-     <button class="carousel-control-prev" type="button"  data-target="#carouselExampleControls" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"  style="background-color: black;"></span>
-        <span class="sr-only">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next" >
-        <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: black;" ></span>
-        <span class="sr-only">Next</span>
-      </button>
-      
-    </div>
-   <p></p>
-    <h1 style="text-align: center; color: rgb(32, 32, 179); font-weight: bold;">BIENVENIDOS A NUESTRO SITIO WEB MUNICIPAL <span class="badge badge-secondary"></span></h1>
-    <p></p>
-    <div class= ".linea-decorativa" aria-hidden="true" ></div>
-    <h5 style="text-align: center; color: rgb(32, 32, 179);font-weight: bold;">Talleres destacados del mes<span class="badge badge-secondary"></span></h5>
+<script>
+    const formulario = document.getElementById('formulario-registro');
 
-    <div style="height: 60vh; display: flex; justify-content: center; align-items: center;">
-      <div style="display: flex; gap: 20px;">
-       
-        <div class="card" style="width: 18rem; margin: 10px; text-align: center;">
-          <img src="{% static 'image/galletas.webp' %}" class="card-img-top" alt="galletas">
-          <div class="card-body">
-            <p class="card-text">Ven a disfrutar de este entretenido taller, donde aprenderas como hacer tus propias galletas navideñas. Abierto para adultos mayores</p>
-          </div>
-        </div>
 
-        
-        <div class="card" style="width: 18rem; margin: 10px; text-align: center;">
-          <img src="{% static 'image/tejido.jpg' %}" class="card-img-top" alt="tejido">
-          <div class="card-body">
-            <p class="card-text">Nuestro taller de tejido cuenta con un sin fin de técnicas que podrás emplear en el curso, contamos con todo lo necesario para que puedas </p>
-          </div>
-        </div>
+formulario.addEventListener('submit', function (e) {
+  e.preventDefault();
 
+  // Validamos que todos los campos estén llenos
+  const nombres = document.getElementById('nombres').value.trim();
+  const apellidos = document.getElementById('apellidos').value.trim();
+  const rut = document.getElementById('rut').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const taller = document.getElementById('taller').value;
+
+  if (!nombres) {
+    alert('El campo "Nombres" es obligatorio.');
+    return;
+  }
+
+  if (!apellidos) {
+    alert('El campo "Apellidos" es obligatorio.');
+    return;
+  }
+
+  if (!rut) {
+    alert('El campo "RUT" es obligatorio.');
+    return;
+  }
+
+  if (!email) {
+    alert('El campo "Email" es obligatorio.');
+    return;
+  }
+
+  if (!taller) {
+    alert('Debes seleccionar un taller.');
+    return;
+  }
+
+  alert('¡Te has postulado con éxito! Pronto te contactaremos vía email.');
+  formulario.reset(); // Limpiamos el formulario después de la alerta
+});
+</script>    
+    
    
-        <div class="card" style="width: 18rem; margin: 10px;text-align: center;">
-          <img src="{% static 'image/zumba.png' %}" class="card-img-top" alt="zumba">
-          <div class="card-body">
-            <p class="card-text">Dejemos de lado el sedentarismo con nuestro taller de zumba enfocado para aquellos adultos mayores que necesiten moverse y mantenerse activos</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div style="background-color: #f77d17; padding: 40px; text-align: center; color: white; margin-top: 50px;">
-      
-      <h1 style="margin-bottom: 10px;">PROYECTOS DE GESTIÓN MUNICIPAL</h1>
-      <p style="margin-bottom: 30px;">Principales obras implementadas durante la actual gestión</p>
-    
-      <!-- Contenedor de íconos -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto;">
-        
-        <div style="text-align: center;">
-          <i class="fa-solid fa-recycle" style="font-size: 50px; color: rgb(253, 253, 253); margin-bottom: 10px;"></i>
-          <p style="margin: 0; color: rgb(243, 243, 243);font-weight: bold;">CENTROS DE RECICLAJE</p>
-        </div>
-    
-        
-        <div style="text-align: center;">
-          <i class="fa-solid fa-user-shield" style="font-size: 50px; color: rgb(252, 252, 252); margin-bottom: 10px;"></i>
-          <p style="margin: 0;font-weight: bold">RUTA SEGURA</p>
-        </div>
-    
-       
-        <div style="text-align: center;">
-          <i class="fa-solid fa-clipboard-list" style="font-size: 50px; color: rgb(245, 248, 244); margin-bottom: 10px;"></i>
-          <p style="margin: 0;font-weight: bold;">MUNICIPIO EN TU BARRIO</p>
-        </div>
-      
-     
-        <div style="text-align: center;">
-          <i class="fa-regular fa-moon" style="font-size: 50px; color: rgb(245, 248, 244); margin-bottom: 10px;"></i>
-          <p style="margin: 0;font-weight: bold">ATENCIÓN NOCTURNA</p>
-        </div>
-        
-        <div style="text-align: center;">
-          <i class="fa-brands fa-accessible-icon" style="font-size: 50px; color: rgb(245, 248, 244); margin-bottom: 10px;"></i>
-          <p style="margin: 0;font-weight: bold">VENTANAS ABIERTAS</p>
-        </div>
-       
-        
-        <div style="text-align: center;">
-          <i class="fa-solid fa-tree" style="font-size: 50px; color: rgb(245, 248, 244); margin-bottom: 10px;"></i>
-          <p style="margin: 0;font-weight: bold">PLAZAS FAMILIARES</p>
-        </div>
-        
-        
-      </div>
-    </div>
 
     
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

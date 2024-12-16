@@ -37,10 +37,13 @@ def perfil(request):
 def login(request):
     return render(request, 'login.html')
 
+
 class PerfilForm(forms.ModelForm):
     class Meta:
         model = Perfil
         fields = ['nombre', 'apellido', 'fecha_nacimiento', 'direccion', 'telefono', 'email']
+def instructor(request):
+    return render(request, 'instructor.html')
 
 
 
