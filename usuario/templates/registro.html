@@ -117,6 +117,42 @@
             </li>
           </ul>
 
+          {% if user.is_authenticated %}
+                <!-- Si el usuario está autenticado, muestra el botón de perfil -->
+              <ul>
+                <div class="dropdown">
+                   <a class="btn btn-primary dropdown-toggle" id="adminDropdown" type="button" data-toggle="dropdown" aria-expanded="false">
+                       Administrador
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+                        <a class="dropdown-item" href="{% url 'perfil' %}">Usuarios</a>
+                        <a class="dropdown-item">Estadísticas</a>
+                        
+                        {% if user.is_authenticated %}
+      <li class="d-flex justify-content-center">
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        
+        <button type="submit" class="btn btn-danger">Cerrar sesión</button> 
+    </form>
+  </li>
+        {% endif %}      
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-info">{{ message }}</div>
+        {% endfor %}
+        {% endif %}
+                    </div>
+                </div>
+              </ul>
+            {% else %}
+                <!-- Si el usuario no está autenticado, muestra el botón de iniciar sesión -->
+                <form method="post" action="{% url 'login' %}">
+                  {% csrf_token %}
+                  <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+              </form>
+            {% endif %}
+
           <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>

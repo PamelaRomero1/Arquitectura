@@ -105,7 +105,7 @@
         <form method="post" action="{% url 'logout' %}">
             {% csrf_token %}
             
-            <a type="submit" class="btn btn-danger">Cerrar sesión</a>
+            <button type="submit" class="btn btn-danger">Cerrar sesión</button> 
         </form>
       </li>
             {% endif %}      

@@ -112,7 +112,7 @@
                 <!-- Si el usuario está autenticado, muestra el botón de perfil -->
               <ul>
                 <div class="dropdown">
-                   <a class="btn btn-secondary dropdown-toggle" id="adminDropdown" type="button" data-toggle="dropdown" aria-expanded="false">
+                   <a class="btn btn-primary dropdown-toggle" id="adminDropdown" type="button" data-toggle="dropdown" aria-expanded="false">
                        Administrador
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="adminDropdown">
@@ -124,7 +124,7 @@
     <form method="post" action="{% url 'logout' %}">
         {% csrf_token %}
         
-        <a type="submit" class="btn btn-danger">Cerrar sesión</a>
+        <button type="submit" class="btn btn-danger">Cerrar sesión</button> 
     </form>
   </li>
         {% endif %}      
@@ -172,6 +172,12 @@
                 <label for="telefono" class="form-label">Teléfono</label>
                 <input type="text" class="form-control" id="telefono" placeholder="Ingresa tu Teléfono" required>
               </div>
+
+              <div class="mb-3">
+                <label for="direccion" class="form-label">Dirección</label>
+                <input type="text" class="form-control" id="direccion" placeholder="Ingresa dirección de taller" required>
+              </div>
+            
             
               <div class="mb-3">
                 <label for="email" class="form-label">Email</label>

@@ -57,6 +57,7 @@ class CustomLogoutView(LogoutView):
     def dispatch(self, request, *args, **kwargs):
         messages.success(request, "¡Has cerrado sesión correctamente!")
         return super().dispatch(request, *args, **kwargs)
+
         
 class RegistroForm(forms.Form):
     username = forms.CharField(max_length=100)
@@ -129,8 +130,8 @@ def editar_perfil(request, perfil_id):
         perfil.telefono = request.POST.get('telefono')
         perfil.email = request.POST.get('email')
         perfil.save()  # Guarda los cambios en la base de datos
-        return redirect('perfil')  # Cambia 'nombre_de_tu_vista' por la vista a la que deseas redirigir después de la edición
+        return redirect('nombre_de_tu_vista')  # Cambia 'nombre_de_tu_vista' por la vista a la que deseas redirigir después de la edición
     
     context = {'perfil': perfil}
-    return render(request, 'editar.html', context)
+    return render(request, 'editar_perfil.html', context)
     
