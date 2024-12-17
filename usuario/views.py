@@ -22,6 +22,8 @@ def lista_perfiles(request):
     perfiles = Perfil.objects.all()  # Obtener todos los perfiles de la tabla
     return render(request, 'perfil.html', {'perfiles': perfiles})
 
+def editar(request): 
+    return render(request, 'editar.html')
 
 def taller(request): 
     return render(request, 'taller.html')
@@ -95,5 +97,20 @@ def registro(request):
         form = RegistroForm()
 
     return render(request, 'registro.html', {'form': form})
+
+
+def inscribir_taller(request, taller_id):
+    # Obtiene el taller que coincide con el ID proporcionado
+    taller = get_object_or_404(Taller, id=taller_id)
+    
+    # Aquí podrías registrar la inscripción del usuario en la base de datos si fuera necesario
+    # Por ejemplo, podrías crear un modelo de inscripción para vincular al usuario con el taller
+    
+    # Envía un mensaje de éxito al usuario
+    messages.success(request, f"Te has inscrito correctamente al taller '{taller.nombreTaller}'. Te llegará la información a tu correo electrónico.")
+    
+    # Redirige a la página de talleres o a la página de perfil, como prefieras
+    return redirect('taller')
+
 
     

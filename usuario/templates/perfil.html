@@ -150,6 +150,7 @@
         </div>
       </nav>
 
+      <h2 class="text-center">Lista de Adultos mayores</h2>
       <div class="container mt-5 d-flex justify-content-center">
         <table class="table" style="background-color: rgb(250, 249, 249);">
           <thead>
@@ -177,7 +178,10 @@
               <td>{{ perfil.direccion }} </td>
               <td>{{ perfil.telefono }}</td>
               <td>{{ perfil.email }}</td>
-              <td><button>Editar</button></td>
+              
+              <td>
+                <button type="button" class="btn btn-primary">Editar</button>
+              </td>
               <td><button>Eliminar</button></td>
             </tr>
             {% empty %}
