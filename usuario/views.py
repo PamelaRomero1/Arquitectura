@@ -57,6 +57,7 @@ class CustomLogoutView(LogoutView):
     def dispatch(self, request, *args, **kwargs):
         messages.success(request, "¡Has cerrado sesión correctamente!")
         return super().dispatch(request, *args, **kwargs)
+        
 class RegistroForm(forms.Form):
     username = forms.CharField(max_length=100)
     password = forms.CharField(widget=forms.PasswordInput())
@@ -112,5 +113,24 @@ def inscribir_taller(request, taller_id):
     # Redirige a la página de talleres o a la página de perfil, como prefieras
     return redirect('taller')
 
+def eliminar_perfil(request, perfil_id):
+    # Obtiene el perfil por ID o lanza un error 404 si no se encuentra
+    perfil = get_object_or_404(Perfil, id=perfil_id)
+    perfil.delete()  # Elimina el perfil de la base de datos
+    return redirect('perfil') 
 
+def editar_perfil(request, perfil_id):
+    perfil = get_object_or_404(Perfil, id=perfil_id)  # Obtiene el perfil o lanza error 404
+    if request.method == 'POST':
+        perfil.nombre = request.POST.get('nombre')
+        perfil.apellido = request.POST.get('apellido')
+        perfil.fecha_nacimiento = request.POST.get('fecha_nacimiento')
+        perfil.direccion = request.POST.get('direccion')
+        perfil.telefono = request.POST.get('telefono')
+        perfil.email = request.POST.get('email')
+        perfil.save()  # Guarda los cambios en la base de datos
+        return redirect('perfil')  # Cambia 'nombre_de_tu_vista' por la vista a la que deseas redirigir después de la edición
+    
+    context = {'perfil': perfil}
+    return render(request, 'editar.html', context)
     

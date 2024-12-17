@@ -180,10 +180,13 @@
               <td>{{ perfil.email }}</td>
               
               <td>
-                <button type="button" class="btn btn-primary">Editar</button>
+                <a href="{% url 'editar_perfil' perfil.id %}" class="btn btn-primary">Editar</a>
               </td>
-              <td><button>Eliminar</button></td>
+              <form action="{% url 'eliminar_perfil' perfil.id %}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este perfil?');">
+                {% csrf_token %}
+              <td><button type="submit" class="btn btn-danger">Eliminar</button></td>
             </tr>
+          </form>
             {% empty %}
             <tr>
                 <td colspan="4" class="text-center">No hay perfiles disponibles.</td>
